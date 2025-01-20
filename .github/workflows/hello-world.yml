@@ -18,7 +18,7 @@ jobs:
       - name: SSH and Run Hello World
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.DEV_SERVER_HOST }}
+          host: 127.0.1.1
           username: ${{ secrets.DEV_SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
