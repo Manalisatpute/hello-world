@@ -21,7 +21,6 @@ jobs:
           host: ${{ secrets.DEV_SERVER_HOST }}
           username: ${{ secrets.DEV_SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 2222
           script: |
             echo "Hello, World!" > ~/hello-world.txt
             cat ~/hello-world.txt
