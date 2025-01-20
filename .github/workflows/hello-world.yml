@@ -1,0 +1,26 @@
+name: Hello World on Server
+
+on:
+  push:
+    branches:
+      - main  # Trigger workflow on push to main branch
+
+jobs:
+  run-on-server:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository (optional for this task)
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: SSH into the server and run a command
+      - name: SSH and Run Hello World
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.DEV_SERVER_HOST }}
+          username: ${{ secrets.DEV_SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "Hello, World!" > ~/hello-world.txt
+            cat ~/hello-world.txt
