@@ -29,7 +29,7 @@ jobs:
       - name: SSH and Run Hello World on Prod Server
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: 65.108.37.107
+          host: ${{ secrets.PROD_SERVER_HOST }}
           username: ${{ secrets.PROD_SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
